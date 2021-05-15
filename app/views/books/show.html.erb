@@ -1,0 +1,14 @@
+<p><%= flash[:success] %></p>
+<h2>Title：</h2>
+<p><%= @book.title %></p>
+<h2>Body:</h2>
+<p><%= @book.body %></p>
+<%= link_to "Edit", edit_book_path(@book.id) %>
+<%= link_to "Back", books_path %>
+
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this book from being saved:
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
